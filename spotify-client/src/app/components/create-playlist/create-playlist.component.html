@@ -1,0 +1,54 @@
+
+<div class="form-container">
+  <h2>Crear Lista de Reproducción</h2>
+  <form (ngSubmit)="submit()" class="playlist-form">
+    <div class="form-group">
+      <label for="nombre">Nombre de la lista</label>
+      <input [(ngModel)]="nombre" id="nombre" name="nombre" placeholder="Ej: Mis Favoritas 2025" required>
+    </div>
+
+    <div class="form-group">
+      <label for="descripcion">Descripción</label>
+      <textarea [(ngModel)]="descripcion" id="descripcion" name="descripcion"
+                placeholder="Describe tu lista..."  required></textarea>
+    </div>
+
+
+    <h3 class="songs-header">Canciones</h3>
+
+    <div *ngFor="let c of canciones; let i = index" class="song-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label [for]="'titulo'+i">Título</label>
+          <input [(ngModel)]="c.titulo" [id]="'titulo'+i" [name]="'titulo'+i" placeholder="Título" required>
+        </div>
+        <div class="form-group">
+          <label [for]="'artista'+i">Artista</label>
+          <input [(ngModel)]="c.artista" [id]="'artista'+i" [name]="'artista'+i" placeholder="Artista" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label [for]="'album'+i">Álbum</label>
+          <input [(ngModel)]="c.album" [id]="'album'+i" [name]="'album'+i" placeholder="Álbum">
+        </div>
+        <div class="form-group">
+          <label [for]="'anno'+i">Año</label>
+          <input [(ngModel)]="c.anno" [id]="'anno'+i" [name]="'anno'+i" placeholder="Año" type="number">
+        </div>
+        <div class="form-group">
+          <label [for]="'genero'+i">Género</label>
+          <input [(ngModel)]="c.genero" [id]="'genero'+i" [name]="'genero'+i" placeholder="Género">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" (click)="agregarCancion()" class="btn-add">
+        <i class="material-icons"></i> Agregar Canción
+      </button>
+      <button type="submit" class="btn-submit">Guardar Lista</button>
+    </div>
+  </form>
+</div>

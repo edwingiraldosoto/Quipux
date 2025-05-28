@@ -1,0 +1,196 @@
+/* Estilo base del contenedor */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilo para el título principal */
+h2 {
+  color: #1DB954; /* Verde Spotify */
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Estados de carga y mensajes */
+.loading,
+.empty-message {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-left: 4px solid #d32f2f;
+}
+
+/* Tarjeta de lista */
+.list-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.list-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Información de la lista */
+.list-info {
+  padding: 1.5rem;
+}
+
+.list-info h3 {
+  color: #191414; /* Negro Spotify */
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.list-info p {
+  color: #535353;
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+}
+
+/* Previsualización de canciones */
+.songs-preview {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8f8f8;
+  border-radius: 8px;
+  border-left: 4px solid #1DB954;
+}
+
+.songs-preview h4 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.songs-preview ul {
+  margin: 0;
+  padding-left: 1rem;
+  list-style-type: none;
+}
+
+.songs-preview li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+}
+
+.songs-preview li:before {
+  content: "•";
+  color: #1DB954;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+/* Contador de canciones */
+small {
+  display: block;
+  margin-top: 0.5rem;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+/* Acciones de la lista */
+.list-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.btn-view {
+  background-color: #1DB954;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-view:hover {
+  background-color: #169c48;
+}
+
+.btn-view:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .list-info {
+    padding: 1rem;
+  }
+
+  .list-actions {
+    padding: 0 1rem 1rem 1rem;
+  }
+}
+
+* Botón de eliminar */
+.btn-delete {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-delete:hover {
+  background-color: #e60000;
+  transform: translateY(-1px);
+}
+
+.btn-delete:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.3);
+}
+
+/* Ajuste para los botones de acción */
+.list-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  border-top: 1px solid #eee;
+  gap: 1rem; /* Espacio entre botones */
+}

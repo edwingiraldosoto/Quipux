@@ -1,0 +1,28 @@
+<div class="delete-container">
+  <h2>Confirmar Eliminación</h2>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!errorMessage">
+    <p>¿Estás seguro que deseas eliminar la lista <strong>"{{ listName }}"</strong>?</p>
+    <p class="warning">Esta acción no se puede deshacer.</p>
+
+    <div class="actions">
+      <button
+        (click)="confirmDelete()"
+        [disabled]="isDeleting"
+        class="delete-button">
+        {{ isDeleting ? 'Eliminando...' : 'Sí, Eliminar' }}
+      </button>
+
+      <button
+        (click)="cancel()"
+        [disabled]="isDeleting"
+        class="cancel-button">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>

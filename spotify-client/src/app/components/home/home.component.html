@@ -1,0 +1,41 @@
+<div class="app-container">
+  <!-- Barra de navegación -->
+  <header class="app-header">
+    <div class="logo-container">
+      <h1>Mi App estilo Spotify</h1>
+    </div>
+    <nav class="nav-menu">
+      <a routerLink="/home" routerLinkActive="active">Inicio</a>
+      <a routerLink="/create-playlist" routerLinkActive="active">Crear Lista</a>
+      <a routerLink="/lists" routerLinkActive="active">Ver Listas</a>
+    </nav>
+  </header>
+
+  <!-- Contenido dinámico -->
+  <main class="main-content">
+    <!-- Mostrar contenido de inicio solo si estamos en la ruta home -->
+    <div *ngIf="isHomeRoute()" class="inicio-content">
+      <h1>Bienvenido a tu App de Música</h1>
+      <div class="options">
+        <a routerLink="/create-playlist" class="option-card">
+          <h2>Crear Nueva Lista</h2>
+          <p>Comienza a crear tu playlist personalizada</p>
+        </a>
+      </div>
+      <div class="options">
+        <a routerLink="/lists" class="option-card">
+          <h2>Ver Listas </h2>
+          <p>Mira tu playlist personalizada</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Router outlet para contenido de otras rutas -->
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="app-footer">
+    <p>© 2025 Mi App de Música</p>
+  </footer>
+</div>

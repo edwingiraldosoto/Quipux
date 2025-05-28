@@ -1,0 +1,152 @@
+/* Contenedor principal */
+.detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Enlace de volver */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  color: #1DB954; /* Verde Spotify */
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #169c48;
+}
+
+.back-link::before {
+  content: "←";
+  margin-right: 0.5rem;
+}
+
+/* Estados de carga y errores */
+.loading,
+.no-songs {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 2rem 0;
+  text-align: center;
+  border-left: 4px solid #d32f2f;
+}
+
+/* Encabezado de la playlist */
+.playlist-detail h2 {
+  color: #191414; /* Negro Spotify */
+  font-size: 2.2rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.playlist-detail .description {
+  color: #535353;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.playlist-detail h3 {
+  color: #1DB954;
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem 0;
+  font-weight: 600;
+}
+
+/* Tabla de canciones */
+.songs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 3rem 0;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.5fr 0.8fr 1fr;
+  background-color: #1DB954;
+  color: white;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.5fr 0.8fr 1fr;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-row:hover {
+  background-color: #f9f9f9;
+}
+
+.table-row div {
+  padding: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* Mensaje cuando no hay canciones */
+.no-songs {
+  background-color: #f8f8f8;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 8px;
+  color: #666;
+  margin: 2rem 0;
+  border: 1px dashed #ddd;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .detail-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .table-header,
+  .table-row {
+    grid-template-columns: 2fr 1.5fr 1fr;
+    padding: 0.8rem 1rem;
+  }
+
+  .table-header div:nth-child(4),
+  .table-header div:nth-child(5),
+  .table-row div:nth-child(4),
+  .table-row div:nth-child(5) {
+    display: none;
+  }
+
+  .playlist-detail h2 {
+    font-size: 1.8rem;
+  }
+}

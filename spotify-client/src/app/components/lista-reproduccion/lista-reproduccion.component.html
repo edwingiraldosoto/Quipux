@@ -1,0 +1,43 @@
+<div class="container">
+  <h2>Listas de Reproducción</h2>
+
+  <div *ngIf="loading" class="loading">
+    Cargando listas...
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!loading && !errorMessage">
+    <div *ngIf="lists.length === 0" class="empty-message">
+      No hay listas de reproducción disponibles.
+    </div>
+
+    <div *ngFor="let list of lists" class="list-card">
+      <div class="list-info">
+        <h3>{{ list.nombre }}</h3>
+        <p>{{ list.descripcion || 'Sin descripción' }}</p>
+
+        <div *ngIf="list.canciones?.length > 0" class="songs-preview">
+          <h4>Algunas canciones:</h4>
+          <ul>
+            <li *ngFor="let cancion of list.canciones.slice(0, 3)">
+              {{ cancion.titulo }} - {{ cancion.artista }}
+            </li>
+            <li *ngIf="list.canciones.length > 3">y {{ list.canciones.length - 3 }} más...</li>
+          </ul>
+        </div>
+        <small>Total canciones: {{ list.canciones?.length || 0 }}</small>
+      </div>
+
+
+      <div class="list-actions">
+        <button class="btn-view" [routerLink]="['/lists', list.nombre]">Ver Detalles</button>
+        <button [routerLink]="['/lists', list.nombre, 'delete']" class="btn-delete"> Eliminar Lista </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+

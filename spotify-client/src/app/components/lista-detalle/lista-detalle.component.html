@@ -1,0 +1,43 @@
+<div class="detail-container">
+  <button (click)="goBack()" class="back-button">
+    <i class="material-icons"></i>
+    <span>Atrás</span>
+  </button>
+
+  <div *ngIf="loading" class="loading">
+    Cargando detalles de la lista...
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="playlist && !loading" class="playlist-detail">
+    <h2>{{ playlist.nombre }}</h2>
+    <p class="description">{{ playlist.descripcion || 'Sin descripción' }}</p>
+
+    <h3>Canciones ({{ playlist.canciones?.length || 0 }})</h3>
+
+    <div *ngIf="playlist.canciones?.length > 0" class="songs-table">
+      <div class="table-header">
+        <div>Título</div>
+        <div>Artista</div>
+        <div>Álbum</div>
+        <div>Año</div>
+        <div>Género</div>
+      </div>
+
+      <div *ngFor="let song of playlist.canciones" class="table-row">
+        <div>{{ song.titulo }}</div>
+        <div>{{ song.artista }}</div>
+        <div>{{ song.album || '-' }}</div>
+        <div>{{ song.anno || '-' }}</div>
+        <div>{{ song.genero || '-' }}</div>
+      </div>
+    </div>
+
+    <div *ngIf="playlist.canciones?.length === 0" class="no-songs">
+      Esta lista no contiene canciones
+    </div>
+  </div>
+</div>
